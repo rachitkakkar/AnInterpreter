@@ -1,0 +1,17 @@
+expression: [0-9]*+-/()
+identifier: [a-z]
+comparison = <=, >=, <, >, ==, !=
+boolean-comparison = {expression} {comparison} {expression}
+variable-assignment: let {identifier} = {expression};
+variable-reassignment: reassign {identifier} = {expression};
+if-statement: if boolean-comparison {
+end-if-statement: }
+jump-statment: jump {expression}
+print_string_line {identifier}
+
+Notes:
+cannot have variables sharing identifiers (like no var and var2 at the same time)
+use <s> for a space in a string
+variables must be longer than 1 char, otherwise replace ub could happen
+comments must be their own line
+no nested if statments
